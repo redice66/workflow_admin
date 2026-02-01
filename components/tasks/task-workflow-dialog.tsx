@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContentNoTransform, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -363,7 +363,7 @@ export function TaskWorkflowDialog({ task, open, onOpenChange }: TaskWorkflowDia
       `}</style>
       
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-6xl max-h-[90vh] overflow-hidden">
+        <DialogContentNoTransform className="sm:max-w-6xl max-h-[90vh] overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold">
             事项内容 | {task.name} | 工作流配置
@@ -515,7 +515,7 @@ export function TaskWorkflowDialog({ task, open, onOpenChange }: TaskWorkflowDia
             {saving ? "保存中..." : "确定"}
           </Button>
         </div>
-      </DialogContent>
+      </DialogContentNoTransform>
       
       {editingTransition && (
         <TransitionEditDrawer
