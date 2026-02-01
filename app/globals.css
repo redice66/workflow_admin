@@ -47,18 +47,17 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-/* Ant Design 自定义样式 */
+/* Ant Design custom styles */
 .ant-radio-wrapper {
   display: flex !important;
   justify-content: center !important;
@@ -70,7 +69,7 @@
   align-items: center !important;
 }
 
-/* 拖拽时的样式 */
+/* Drag and drop styles */
 .dragging {
   opacity: 1 !important;
   transform: rotate(2deg) !important;
@@ -81,7 +80,6 @@
   z-index: 1000 !important;
 }
 
-/* 拖拽行样式 */
 .dragging-row {
   opacity: 1 !important;
   background: #ffffff !important;
@@ -94,34 +92,6 @@
   align-items: center !important;
 }
 
-/* 拖拽时保持文本可读性 */
-.dragging td,
-.dragging-row td,
-.dragging th,
-.dragging-row th {
-  color: #374151 !important;
-  opacity: 1 !important;
-  border-right: 1px solid #e5e7eb !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-/* 拖拽句柄样式 */
-[data-rbd-drag-handle] {
-  cursor: grab !important;
-  transition: all 0.2s ease !important;
-}
-
-[data-rbd-drag-handle]:hover {
-  color: #3b82f6 !important;
-}
-
-[data-rbd-drag-handle]:active {
-  cursor: grabbing !important;
-}
-
-/* 增强拖拽手柄的视觉反馈 */
 .cursor-grab {
   cursor: grab !important;
 }
@@ -130,121 +100,7 @@
   cursor: grabbing !important;
 }
 
-.active\:cursor-grabbing:active {
-  cursor: grabbing !important;
-}
-
-/* 状态矩阵拖拽样式优化 */
-[data-rbd-droppable-id="states"] {
-  position: relative !important;
-  overflow: visible !important;
-}
-
-[data-rbd-droppable-id="fields"] {
-  position: relative !important;
-  overflow: visible !important;
-}
-
-[data-rbd-droppable-id="statuses"] {
-  position: relative !important;
-  overflow: visible !important;
-}
-
-/* 拖拽占位符样式 */
-[data-rbd-placeholder] {
-  background-color: #f3f4f6 !important;
-  border: 2px dashed #d1d5db !important;
-  border-radius: 8px !important;
-  opacity: 0.5 !important;
-  margin: 2px 0 !important;
-}
-
-/* 确保表格容器支持拖拽 */
-table[data-rbd-droppable-context-id] {
-  table-layout: fixed !important;
-  overflow: visible !important;
-}
-
-tbody[data-rbd-droppable-context-id] {
-  overflow: visible !important;
-}
-
-/* 确保拖拽时的表格单元格保持固定宽度 */
-.dragging table,
-.dragging-row table {
-  table-layout: fixed !important;
-  width: 100% !important;
-  border-collapse: separate !important;
-  border-spacing: 0 !important;
-}
-
-.dragging td,
-.dragging-row td,
-.dragging div,
-.dragging-row div {
-  border-right: 1px solid #e5e7eb !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-/* 拖拽时的portal容器样式 */
-[data-rbd-drag-handle] {
-  transform-origin: center !important;
-  will-change: transform !important;
-  user-select: none !important;
-}
-
-/* 确保拖拽项跟随鼠标 */
-[data-rbd-draggable-context-id] {
-  position: relative !important;
-}
-
-/* 修复拖拽时可能的层级问题 */
-[data-rbd-drag-handle-context-id] {
-  z-index: 1001 !important;
-}
-
-/* 拖拽时表格行的特殊处理 */
-tr.dragging-row {
-  display: table-row !important;
-  table-layout: fixed !important;
-  width: 100% !important;
-}
-
-/* 确保拖拽ghost不被遮挡 */
-body > [data-rbd-portal] {
-  z-index: 2000 !important;
-}
-
-/* 拖拽时隐藏原始元素 */
-[data-rbd-draggable-id][style*="opacity: 0.5"] {
-  opacity: 0.3 !important;
-}
-
-/* 优化拖拽性能 */
-[data-rbd-drag-handle] {
-  will-change: transform !important;
-}
-
-[data-rbd-draggable-context-id] {
-  will-change: transform !important;
-}
-
-/* 确保拖拽clone元素可见性 */
-.dragging-row {
-  pointer-events: auto !important;
-}
-
-/* 防止拖拽时内容选中 */
-[data-rbd-droppable-context-id] {
-  user-select: none !important;
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-}
-
-/* 状态矩阵表格样式 */
+/* Status matrix table styles */
 .status-matrix-table {
   border-collapse: separate;
   border-spacing: 0;
@@ -258,51 +114,7 @@ body > [data-rbd-portal] {
   background-color: #f0f9ff !important;
 }
 
-/* 自定义 Toast 动画 */
-@keyframes toast-slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes toast-slide-out-right {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-@keyframes toast-slide-in-top {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes toast-slide-in-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
+/* Toast animations */
 @keyframes toast-fade-in {
   from {
     opacity: 0;
@@ -331,18 +143,4 @@ body > [data-rbd-portal] {
 
 .toast-exit {
   animation: toast-fade-out 0.35s ease forwards;
-}
-
-@media (min-width: 640px) {
-  .toast-enter-from-bottom {
-    animation: toast-slide-in-bottom 0.35s ease forwards;
-  }
-
-  .toast-enter-from-right {
-    animation: toast-slide-in-right 0.35s ease forwards;
-  }
-
-  .toast-exit-to-right {
-    animation: toast-slide-out-right 0.35s ease forwards;
-  }
 }
