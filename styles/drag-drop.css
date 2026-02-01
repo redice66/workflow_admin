@@ -1,0 +1,143 @@
+/* 拖拽组件专用样式 - 解决偏移和样式问题 */
+
+/* 确保拖拽容器不受外部样式影响 */
+.drag-drop-container {
+  position: static !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+/* 拖拽项样式重置 */
+[data-rbd-draggable-context-id] {
+  position: static !important;
+}
+
+/* 拖拽时的样式 */
+[data-rbd-draggable-context-id][data-rbd-drag-handle-context-id] {
+  cursor: grab !important;
+}
+
+[data-rbd-draggable-context-id][data-rbd-drag-handle-context-id]:active {
+  cursor: grabbing !important;
+}
+
+/* 拖拽中的项目样式 */
+[data-rbd-draggable-context-id][style*="position: fixed"] {
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* Droppable 区域样式 */
+[data-rbd-droppable-context-id] {
+  position: static !important;
+  transform: none !important;
+}
+
+/* 解决 fixed 定位对拖拽的影响 */
+.drag-portal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* 拖拽占位符样式 */
+[data-rbd-placeholder-context-id] {
+  opacity: 0.5;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+}
+
+/* 拖拽手柄样式 */
+.drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #9ca3af;
+  cursor: grab;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.drag-handle:hover {
+  color: #6b7280;
+  background-color: #f3f4f6;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+  background-color: #e5e7eb;
+}
+
+/* 拖拽项动画 */
+.draggable-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.draggable-item:hover:not([data-rbd-drag-handle-dragging-id]) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 拖拽中的特殊样式 */
+.dragging {
+  transform: rotate(2deg) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  background-color: #f0f9ff !important;
+  border-color: #3b82f6 !important;
+}
+
+/* 克隆项样式 */
+.drag-clone {
+  background: white !important;
+  border: 2px solid #3b82f6 !important;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3) !important;
+  border-radius: 8px !important;
+}
+
+/* 状态矩阵拖拽克隆样式 */
+.dragging-column-clone {
+  background: white !important;
+  border: 2px solid #3b82f6 !important;
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25) !important;
+  border-radius: 8px !important;
+}
+
+.dragging-column-clone .ant-checkbox-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.dragging-column-clone .ant-checkbox {
+  margin: 0 !important;
+}
+
+/* 状态矩阵表格样式优化 */
+.status-matrix-table .ant-checkbox-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.status-matrix-table .ant-checkbox {
+  margin: 0;
+}
+
+/* 拖拽时的表格列样式 */
+.status-column-dragging {
+  background: #f0f9ff !important;
+  border: 1px solid #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+  border-radius: 4px !important;
+}
+
+.status-column-dragging .ant-checkbox-wrapper {
+  pointer-events: none;
+}
